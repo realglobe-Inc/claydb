@@ -1,7 +1,7 @@
 {
   "name": "claydb",
   "version": "1.0.0",
-  "description": "A distributed NoSQL to make every data Resourceful",
+  "description": "A distributed NoSQL to handle data as web resource",
   "main": "lib",
   "scripts": {
     "test": "node ./ci/test.js",
