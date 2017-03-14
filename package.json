@@ -1,0 +1,50 @@
+{
+  "name": "claydb",
+  "version": "1.0.0",
+  "description": "A distributed NoSQL to make every data Resourceful",
+  "main": "lib",
+  "scripts": {
+    "test": "node ./ci/test.js",
+    "prepare": "node ./ci/build.js"
+  },
+  "repository": "realglobe-Inc/claydb",
+  "keywords": [
+    "ClayDB"
+  ],
+  "author": {
+    "name": "Taka Okunishi",
+    "email": "okunishinish@gmail.com",
+    "url": "http://okunishitaka.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/realglobe-Inc/claydb/issues"
+  },
+  "homepage": "https://github.com/realglobe-Inc/claydb#readme",
+  "dependencies": {
+    "clay-collection": "^1.0.1",
+    "clay-entity": "^1.5.1",
+    "clay-id": "^2.0.1",
+    "clay-lump": "^3.0.1",
+    "clay-resource": "^2.3.1",
+    "co": "^4.6.0",
+    "stringcase": "^3.2.1"
+  },
+  "devDependencies": {
+    "amocha": "^2.0.0",
+    "ape-formatting": "^1.0.2",
+    "ape-releasing": "^4.0.4",
+    "ape-tasking": "^4.0.9",
+    "ape-tmpl": "^5.0.20",
+    "ape-updating": "^4.1.0",
+    "claydb-assets": "^1.0.1",
+    "coz": "^6.0.20",
+    "injectmock": "^2.0.0",
+    "markdown-toc": "^1.1.0",
+    "sugos-travis": "^2.0.7"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=4"
+  }
+}
