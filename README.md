@@ -60,10 +60,9 @@ A distributed NoSQL to handle data as web resource
 Table of Contents
 ----------------
 
-- [claydb](#claydb)
-  * [Requirements](#requirements)
-  * [License](#license)
-  * [Links](#links)
+- [Requirements](#requirements)
+- [License](#license)
+- [Links](#links)
 
 
 <!-- Section from "doc/guides/00.TOC.md.hbs" End -->
