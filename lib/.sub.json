@@ -1,5 +1,7 @@
 {
-  "caller": "sugo-caller",
-  "hub": "sugo-hub",
-  "actor": "sugo-actor"
+  "lump": "clay-lump",
+  "resource": "clay-resource",
+  "id": "clay-id",
+  "entity": "clay-entity",
+  "collection": "clay-collection"
 }

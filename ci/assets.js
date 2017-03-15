@@ -10,7 +10,7 @@ const co = require('co')
 const apeTasking = require('ape-tasking')
 const filecopy = require('filecopy')
 const path = require('path')
-const { images } = require('sugos-assets/lib/paths')
+const { images } = require('claydb-assets/lib/paths')
 
 apeTasking.runTasks('assets', [
   () => co(function * () {
