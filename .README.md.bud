@@ -19,7 +19,9 @@ module.exports = readmeMdBud({
   },
   overview: 'doc/overview.md',
   links: require('./doc/links'),
-  vars: {}
+  vars: {
+    bannerHeight: 40
+  }
 })
 
 if (!module.parent) {

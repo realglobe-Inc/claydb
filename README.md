@@ -77,14 +77,14 @@ Requirements
 <a href="https://nodejs.org">
   <img src="assets/images/nodejs-banner.png"
        alt="banner"
-       height=""
-       style="height:px"
+       height="40"
+       style="height:40px"
   /></a>
 <a href="https://docs.npmjs.com/">
   <img src="assets/images/npm-banner.png"
        alt="banner"
-       height=""
-       style="height:px"
+       height="40"
+       style="height:40px"
   /></a>
 
 + [Node.js ( >=6 )][node_download_url]
