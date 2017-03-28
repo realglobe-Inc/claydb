@@ -1,3 +1,4 @@
 - [Requirements](#requirements)
+- [Getting Started](#getting-started)
 - [License](#license)
 - [Links](#links)

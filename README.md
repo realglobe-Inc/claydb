@@ -45,7 +45,15 @@ A distributed NoSQL to handle data as web resource
 <!-- Overview Start -->
 <a name="overview"></a>
 
+ClayDB written in pure javascript and use pluggable storage to store data. 
+Storage can be RDMS like MySQL, files like JSON, LocalStorage in browser, or anything holds data. 
 
+ClayDB is a collection of distributed node called **Lump**, which wraps storage with driver and provide resources to outside.
+Each **Lump**s can be merged one another.
+
+<img src="assets/images/claydb-overview.png" 
+    alt="Overview"
+/>
 
 <!-- Overview End -->
 
@@ -61,6 +69,7 @@ Table of Contents
 ----------------
 
 - [Requirements](#requirements)
+- [Getting Started](#getting-started)
 - [License](#license)
 - [Links](#links)
 
@@ -95,6 +104,20 @@ Requirements
 
 
 <!-- Section from "doc/guides/10.Requirements.md.hbs" End -->
+
+<!-- Section from "doc/guides/20.Getting Started.md.hbs" Start -->
+
+<a name="section-doc-guides-20-getting-started-md"></a>
+
+Getting Started
+---------
+
+
+```javascript
+
+```
+
+<!-- Section from "doc/guides/20.Getting Started.md.hbs" End -->
 
 
 <!-- Sections Start -->

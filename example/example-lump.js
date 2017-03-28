@@ -1,34 +1,27 @@
 'use strict'
 
-const clay = require('claydb')
+const clayLump = require('clay-lump')
 const { SqliteDriver } = require('clay-driver-sqlite')
 
-const clayLump = require('clay-lump')
-const co = require('co')
+async function tryExample () {
+  let lump01 = clayLump('lump01', {
+    driver: new SqliteDriver('tmp/lump-01.db')
+  })
 
-co(function * () {
-  let lump01 = clayLump('lump01')
-
-  // Access to data sheet
+  // Access to resource
   {
-    const Dog = lump01.resource('Dog')
+    const Dog = lump01.resource('Dog') // Access to resource
 
-    let john = yield Dog.create({ name: 'john', type: 'Saint Bernard', age: 3 })
+    let john = await Dog.create({ name: 'john', type: 'Saint Bernard', age: 3 })
     console.log('New dog created:', john) // -> { id: '1a6358694adb4aa89c15f94be50d5b78', name: 'john', type: 'Saint Bernard', age: 3 }
-  }
 
-  let lump02 = clayLump('lump02')
-  {
-    const Dog = lump02.resource('Dog')
-    let bess = yield Dog.create({ name: 'bess', type: 'Chihuahua', age: 1 })
-    console.log('New dog created:', bess)
-  }
+    let dogs = await Dog.list({
+      filter: { type: 'Saint Bernard' },
+      page: { size: 25, number: 1 }
+    })
 
-  // Sync lumps01 to lump02
-  yield lump02.sync(lump01) // Both lumps will be updated
-  {
-    const Dog = lump02.resource('Dog')
-    let [ john ] = (yield Dog.list({ filter: { name: 'john' } })).entities // Synced from lump01
-    console.log(john) // -> { id: '1a6358694adb4aa89c15f94be50d5b78', name: 'john', type: 'Saint Bernard', age: 3 }
+    console.log(dogs) // -> { entities: [ /* ... */ ], meta: { /* ... */ } }
   }
-}).catch((err) => console.error(err))
+}
+
+tryExample().catch((err) => console.error(err))
