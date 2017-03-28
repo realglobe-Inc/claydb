@@ -1,0 +1,56 @@
+'use strict'
+
+const { snakecase } = require('stringcase')
+const { Templates } = require('sg-templates')
+
+let api = (name, { pkg, jsdoc, classNames, funcNames }) => ({
+  force: true,
+  mode: '444',
+  tmpl: Templates.moduleApi,
+  path: `${name}.md`,
+  data: {
+    pkg,
+    get signature () {
+      const paramDesc = ({ parameters = [] }) => parameters
+        .map((param) => param.name)
+        .filter((name) => !/\./.test(name)).join(', ')
+      const asClass = (item) => Object.assign({}, item, {
+        functions: (item.functions || []).map((func) => Object.assign(func, {
+          paramDesc: paramDesc(func)
+        })),
+        constructor: Object.assign(item.constructor, {
+          paramDesc: paramDesc(item.constructor)
+        }),
+        instanceName: snakecase(item.name).split('_').pop()
+      })
+      const asFunc = (item) => Object.assign({}, item, {
+        paramDesc: paramDesc(item)
+      })
+      const byName = (list, { wrapper = (item) => item }) => list.reduce((result, item) => Object.assign(result, {
+        [item.name]: wrapper(item)
+      }), {})
+      let classes = byName(jsdoc[ 'classes' ], { wrapper: asClass })
+      let functions = byName(jsdoc[ 'functions' ], { wrapper: asFunc })
+      return {
+        classes: classNames.map((className) => classes[ className ]),
+        functions: funcNames.map((funcName) => functions[ funcName ]),
+      }
+    }
+  }
+})
+
+module.exports = [
+  api('resource', {
+    pkg: require('clay-resource/package.json'),
+    jsdoc: require('clay-resource/jsdoc.json'),
+    classNames: require('clay-resource/jsdoc.json').classes
+      .map(({ name }) => name)
+      .filter((name) => (name === 'ClayResource') || /Mixed/.test(name))
+    ,
+    funcNames: [ 'clayResource' ]
+  })
+]
+
+if (!module.parent) {
+  require('coz').render(__filename)
+}

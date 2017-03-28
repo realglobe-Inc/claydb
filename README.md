@@ -112,6 +112,14 @@ Requirements
 Getting Started
 ---------
 
+Three step to be getting started.
+
+1. Choose driver and instantiate to connect storage
+2. Create lump with the driver
+3. Access resource in lump
+
+Resources are collection of data like database table or document collection.
+It provides basic CRUD interface to handle data.
 
 ```javascript
 'use strict'
@@ -124,19 +132,30 @@ async function tryExample () {
     driver: new SqliteDriver('tmp/lump-01.db')
   })
 
-  // Access to resource
+  // Access to resource.
   {
-    const Dog = lump01.resource('Dog') // Access to resource
+    const Dog = lump01.resource('Dog')
 
-    let john = await Dog.create({ name: 'john', type: 'Saint Bernard', age: 3 })
+    // Add an entity to resource
+    let john = await Dog.create({ name: 'John', type: 'Saint Bernard', age: 3 })
     console.log('New dog created:', john) // -> { id: '1a6358694adb4aa89c15f94be50d5b78', name: 'john', type: 'Saint Bernard', age: 3 }
 
+    // List entities from resource
     let dogs = await Dog.list({
       filter: { type: 'Saint Bernard' },
       page: { size: 25, number: 1 }
     })
+    console.log('Found dogs:', dogs) // -> { entities: [ /* ... */ ], meta: { /* ... */ } }
 
-    console.log(dogs) // -> { entities: [ /* ... */ ], meta: { /* ... */ } }
+    // Get entity with id
+    let johnAgain = await Dog.one(john.id)
+    console.log('From id', johnAgain)
+
+    // Update date
+    await Dog.update(john.id, { name: 'Shinny John' })
+
+    // Destroy data
+    await Dog.destroy(john.id)
   }
 }
 
@@ -145,6 +164,18 @@ tryExample().catch((err) => console.error(err))
 ```
 
 <!-- Section from "doc/guides/20.Getting Started.md.hbs" End -->
+
+<!-- Section from "doc/guides/23.API.md.hbs" Start -->
+
+<a name="section-doc-guides-23-a-p-i-md"></a>
+
+API Guides
+---------
+
++ [Clay-Resource](./doc/api/resource.md)
+
+
+<!-- Section from "doc/guides/23.API.md.hbs" End -->
 
 
 <!-- Sections Start -->
