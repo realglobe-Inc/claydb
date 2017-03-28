@@ -18,7 +18,8 @@ apeTasking.runTasks('assets', [
       let filename = images[ name ]
       let result = yield filecopy(filename, `assets/images/${path.basename(filename)}`, {
         mkdirp: true,
-        force: true
+        force: true,
+        mode: '644'
       })
       Object.keys(result).forEach((filename) =>
         console.log(`File generated: ${filename}`)

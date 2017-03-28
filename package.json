@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/realglobe-Inc/claydb#readme",
   "dependencies": {
-    "clay-collection": "^1.0.1",
-    "clay-entity": "^1.5.1",
-    "clay-id": "^2.0.1",
-    "clay-lump": "^3.0.1",
-    "clay-resource": "^2.3.1",
+    "clay-collection": "^1.0.3",
+    "clay-entity": "^1.5.2",
+    "clay-id": "^2.1.2",
+    "clay-lump": "^3.1.7",
+    "clay-resource": "^2.8.1",
     "co": "^4.6.0",
     "stringcase": "^3.2.1"
   },
@@ -37,10 +37,12 @@
     "ape-tasking": "^4.0.9",
     "ape-tmpl": "^5.0.20",
     "ape-updating": "^4.1.0",
-    "claydb-assets": "^1.0.1",
+    "claydb-assets": "^1.0.3",
     "coz": "^6.0.20",
     "injectmock": "^2.0.0",
     "markdown-toc": "^1.1.0",
+    "sg-templates": "^1.4.4",
+    "stringcase": "^3.2.1",
     "sugos-travis": "^2.0.7"
   },
   "engines": {
