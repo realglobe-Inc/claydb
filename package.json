@@ -1,6 +1,6 @@
 {
   "name": "claydb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A distributed NoSQL to handle data as web resource",
   "main": "lib",
   "scripts": {
