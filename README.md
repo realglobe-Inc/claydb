@@ -70,6 +70,8 @@ Table of Contents
 
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
+- [Advanced Usage](#advanced-usage)
+  * [Adding policy to resource](#adding-policy-to-resource)
 - [API Guides](#api-guides)
 - [License](#license)
 - [Links](#links)
@@ -164,7 +166,56 @@ tryExample().catch((err) => console.error(err))
 
 ```
 
+
 <!-- Section from "doc/guides/20.Getting Started.md.hbs" End -->
+
+<!-- Section from "doc/guides/21.Advanced Usage.md.hbs" Start -->
+
+<a name="section-doc-guides-21-advanced-usage-md"></a>
+
+Advanced Usage
+---------
+
+### Adding policy to resource
+
+ClayDB is basically an open-schema and has no restriction on each data structure.
+However you can use [Clay-Policy](https://github.com/realglobe-Inc/clay-policy) to validate entities on resource.
+
+
+```javascript
+'use strict'
+
+const clayLump = require('clay-lump')
+
+async function tryExample () {
+  let lump01 = clayLump('lump01', {
+    /* ... */
+  })
+
+  const Cat = lump01.reosurce('Cat')
+
+  // Register resource policy
+  Cat.policy({
+    name: {
+      type: 'STRING',
+      required: true,
+      minLength: 2
+    },
+    breed: {
+      type: 'STRING',
+      oneOf: [ 'Abyssinian', 'Balinese', ...[ /* ... */ ] ]
+    }
+  })
+
+  // Throws error if policy not matches
+  await Cat.create({ /* ... */ })
+}
+
+tryExample().catch((err) => console.error(err))
+
+```
+
+<!-- Section from "doc/guides/21.Advanced Usage.md.hbs" End -->
 
 <!-- Section from "doc/guides/23.API.md.hbs" Start -->
 
