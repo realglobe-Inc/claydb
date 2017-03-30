@@ -1,5 +1,7 @@
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
+- [Advanced Usage](#advanced-usage)
+  * [Adding policy to resource](#adding-policy-to-resource)
 - [API Guides](#api-guides)
 - [License](#license)
 - [Links](#links)
