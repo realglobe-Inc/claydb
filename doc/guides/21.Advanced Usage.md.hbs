@@ -1,7 +1,7 @@
 Advanced Usage
 ---------
 
-### Adding policy to resource
+### Adding Policy to Resource
 
 ClayDB is basically an open-schema and has no restriction on each data structure.
 However you can use [Clay-Policy](https://github.com/realglobe-Inc/clay-policy) to validate entities on resource.
@@ -9,4 +9,16 @@ However you can use [Clay-Policy](https://github.com/realglobe-Inc/clay-policy) 
 
 ```javascript
 {{{read 'example/example-policy.js'}}}
+```
+
+
+### Syncing Lumps
+
+Clay-Lumps are distributed nodes of ClayDB and can be merge one another.
+sync command compare the each entities in every resources on lumps and merge records by id.
+
+Sync policy is quite simple. The newer one overcomes order one.
+
+```javascript
+{{{read 'example/example-sync.js'}}}
 ```
