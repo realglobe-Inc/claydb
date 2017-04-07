@@ -1,6 +1,6 @@
 {
   "name": "claydb",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "A distributed NoSQL to handle data as web resource",
   "main": "lib",
   "scripts": {
@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/realglobe-Inc/claydb#readme",
   "dependencies": {
-    "clay-collection": "^1.0.3",
-    "clay-entity": "^1.5.2",
-    "clay-id": "^2.1.2",
-    "clay-lump": "^3.1.7",
-    "clay-resource": "^2.8.1",
+    "clay-collection": "^2.0.1",
+    "clay-entity": "^2.0.1",
+    "clay-id": "^3.0.1",
+    "clay-lump": "^4.0.1",
+    "clay-resource": "^3.0.2",
     "co": "^4.6.0",
     "stringcase": "^3.2.1"
   },
@@ -37,7 +37,7 @@
     "ape-tasking": "^4.0.9",
     "ape-tmpl": "^5.0.20",
     "ape-updating": "^4.1.0",
-    "claydb-assets": "^1.0.3",
+    "claydb-assets": "*",
     "coz": "^6.0.20",
     "injectmock": "^2.0.0",
     "markdown-toc": "^1.1.0",

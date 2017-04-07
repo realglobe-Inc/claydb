@@ -13,6 +13,6 @@ const { description, repository } = require('../package.json')
 
 runTasks('share', [
   () => execcli('hub', [ 'init' ]),
-  () => execcli('hub', [ 'create', { d: description, p: true }, repository ]),
+  () => execcli('hub', [ 'create', { d: description, p: false }, repository ]),
   () => execcli('travis', [ 'enable', { r: repository } ])
 ], true)
