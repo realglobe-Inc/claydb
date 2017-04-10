@@ -10,9 +10,7 @@ install:
 - npm install
 script:
 - ./ci/build.js
-- ./ci/shim.js
 - ./ci/test.js
-- ./ci/doc.js
 after_success:
 - ./ci/travis/publish.js
 env:
