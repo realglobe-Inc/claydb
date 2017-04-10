@@ -7,7 +7,7 @@ async function tryExample () {
     /* ... */
   })
 
-  const Cat = lump01.reosurce('Cat')
+  const Cat = lump01.resource('Cat')
 
   // Register resource policy
   Cat.policy({
